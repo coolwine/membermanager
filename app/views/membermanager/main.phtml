@@ -1,0 +1,73 @@
+<h3>This is the view</h3>
+
+
+<?php echo $data['search_val'];?>
+
+<div>
+	<form name='frm1' method='post'>
+		<table border='1' width=100%>
+			<tr>
+				<th>user_id</th>
+				<th>
+					<input type='text' name='search_val' size=100 />
+					<input type='button' name='search_btn' value='search' />
+				</th>
+			</tr>
+			<tr>
+				<th>test</th>
+				<th>test2</th>
+			</tr>
+		</table>
+	</form>
+
+
+	
+	<br/><br/><br/>
+
+	<div>
+			<table border='1'> 
+				<tr>
+					<th>user_id</th>
+				</tr>
+			
+			<?php
+				foreach($data['member_info'] as $_user)
+				{
+			?>
+					<tr>
+						<td><?php echo $_user->user_id?></td>
+					</tr>
+			<?php
+				}
+			?>
+			</table>
+	</div>
+</div>
+
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type='text/javascript' >
+$(document).ready(function(){
+	//alert('bbbbbb');
+
+
+	$('input[name=search_btn]').click(function(){
+		var search_val = $('input[name=search_val]').val();
+
+		if( search_val == '' || typeof search_val == 'undefined' )
+		{
+			//alert('input search value data');
+			//return;
+		}
+
+		//$(this).parents('form:first').attr('action', 'testcon/model_test').submit();
+		$(this).parents('form:first').submit();
+	});
+
+	
+});
+</script>
