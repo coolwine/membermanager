@@ -5,11 +5,11 @@
 
 <div>
 	<form name='frm1' method='post'>
-		<table border='1' width=100%>
+		<table border='1' width='100%'>
 			<tr>
 				<th>user_id</th>
 				<th>
-					<input type='text' name='search_val' size=100 />
+					<input type='text' name='search_val' size=100 value='<?php echo $data['search_val']?>' />
 					<input type='button' name='search_btn' value='search' />
 				</th>
 			</tr>
@@ -24,6 +24,11 @@
 	
 	<br/><br/><br/>
 
+	<div><h2>total cnt : <?php echo $data['total_row']?></h2></div>
+		
+	
+	
+	
 	<div>
 			<table border='1'> 
 				<tr>
@@ -31,13 +36,16 @@
 				</tr>
 			
 			<?php
-				foreach($data['member_info'] as $_user)
+				if( isset($data['list']) && count($data['list']) )
 				{
+					foreach($data['list'] as $_user)
+					{
 			?>
-					<tr>
-						<td><?php echo $_user->user_id?></td>
-					</tr>
+						<tr>
+							<td><?php echo $_user->user_id?></td>
+						</tr>
 			<?php
+					}
 				}
 			?>
 			</table>
@@ -45,7 +53,7 @@
 </div>
 
 
-
+<?php echo $data['data_pagination'];?>
 
 
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
