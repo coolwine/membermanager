@@ -58,7 +58,8 @@ class mypaging
 	
 	
 	/*
-	 * ( $now_page > 1 ) { //이전페이지 링크 출력; }
+	 * 
+	if ( $now_page > 1 ) { //이전페이지 링크 출력; }
 	if( $now_page < $total_page ) { //다음페이지 링크 출력; }
 	if( $block_num > 1 ) { //이전 블록 링크 출력; }
 	if( $block_num < $total_block ) { //다음 블록 링크 출력; }
